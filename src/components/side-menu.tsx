@@ -16,14 +16,14 @@ export function SideMenu() {
           <span className="text-sm font-medium">MENU</span>
         </button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-[300px] border-none bg-black p-0">
+      <SheetContent side="right" className="w-[300px] border-none bg-black p-0" title="Navigation Menu" hideTitle>
         <div className="flex h-full flex-col px-6">
-          <SheetHeader className="h-20 border-b border-white/10">
-            <div className="flex items-center justify-between">
+          <SheetHeader className="h-32 border-b border-white/10">
+            <div className="flex h-full items-end justify-between pb-6">
               <div className="h-8 w-20 bg-white" />
               <button onClick={() => setOpen(false)} className="flex items-center space-x-2 text-white hover:opacity-70">
-                <span className="text-sm font-medium">CLOSE MENU</span>
-                <X className="h-6 w-6" />
+                <span className="text-xs font-small">CLOSE MENU</span>
+                <X className="h-7 w-7" />
               </button>
             </div>
           </SheetHeader>
@@ -45,17 +45,12 @@ export function SideMenu() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white/70 transition-colors hover:text-white" onClick={() => setOpen(false)}>
+                <Link href="mailto:contact@manifest.com" className="text-white/70 transition-colors hover:text-white" onClick={() => setOpen(false)}>
                   CONTACT
                 </Link>
               </li>
             </ul>
           </nav>
-          <div className="border-t border-white/10 py-6">
-            <div className="relative">
-              <input type="search" placeholder="Search..." className="w-full border-b border-white/10 bg-transparent pb-2 text-sm text-white placeholder-white/50 outline-none" />
-            </div>
-          </div>
         </div>
       </SheetContent>
     </Sheet>

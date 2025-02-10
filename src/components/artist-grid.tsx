@@ -1,4 +1,4 @@
-import { ArtistCard } from "@/components/artist-card"
+import { ArtistCard } from "@/components/artist-card";
 
 export function ArtistGrid() {
   const artists = [
@@ -10,7 +10,7 @@ export function ArtistGrid() {
     {
       id: 2,
       name: "Artist Two",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/post-malone.avif",
     },
     {
       id: 3,
@@ -57,7 +57,7 @@ export function ArtistGrid() {
       name: "Artist Eleven",
       image: "/placeholder.svg?height=400&width=600",
     },
-  ]
+  ];
 
   return (
     <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -65,6 +65,5 @@ export function ArtistGrid() {
         <ArtistCard key={artist.id} {...artist} />
       ))}
     </div>
-  )
+  );
 }
-
