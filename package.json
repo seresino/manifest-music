@@ -2,9 +2,9 @@
   "name": "manifest-music",
   "scripts": {
     "dev": "pnpm -r run dev",
-    "dev:next": "pnpm --filter nextjs run dev", 
+    "dev:next": "pnpm --filter nextjs run dev",
     "dev:studio": "pnpm --filter studio run dev",
-    "i-all": "pnpm install && pnpm -r install",
+    "i-all": "pnpm install && pnpm -r install"
   },
   "keywords": [
     "Sanity",
