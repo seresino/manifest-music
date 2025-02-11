@@ -9,6 +9,19 @@ export default {
       type: 'string',
     },
     {
+      name: 'type',
+      title: 'Type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Artist', value: 'artist'},
+          {title: 'Producer/Writer', value: 'producer-writer'},
+        ],
+        layout: 'radio',
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'image',
       title: 'Image',
       type: 'image',
