@@ -2,8 +2,9 @@
   "name": "manifest-music",
   "scripts": {
     "dev": "pnpm -r run dev",
-    "dev:next": "pnpm --filter nextjs run dev",
+    "dev:next": "pnpm --filter nextjs run dev", 
     "dev:studio": "pnpm --filter studio run dev",
+    "i-all": "pnpm install && pnpm -r install",
     "import-sample-data": "cd studio && sanity dataset import sample-data.tar.gz --replace"
   },
   "keywords": [
