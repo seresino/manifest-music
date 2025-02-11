@@ -18,14 +18,14 @@ export default function LandingPage() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Instagram className="h-5 w-5" />
+            <Instagram className="h-8 w-8" />
             <span className="sr-only">Instagram</span>
           </Link>
           <Link
             href="mailto:info@manifestmusic.com"
             className="rounded-full border border-white/20 p-2 text-white transition-colors hover:bg-white/10"
           >
-            <Mail className="h-5 w-5" />
+            <Mail className="h-8 w-8" />
             <span className="sr-only">Email</span>
           </Link>
         </div>
