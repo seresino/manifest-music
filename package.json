@@ -5,7 +5,6 @@
     "dev:next": "pnpm --filter nextjs run dev", 
     "dev:studio": "pnpm --filter studio run dev",
     "i-all": "pnpm install && pnpm -r install",
-    "import-sample-data": "cd studio && sanity dataset import sample-data.tar.gz --replace"
   },
   "keywords": [
     "Sanity",
@@ -15,9 +14,6 @@
     "Live Content API (LCAPI)",
     "Real-time"
   ],
-  "bugs": {
-    "url": "https://github.com/sanity-io/sanity-template-nextjs-clean/issues"
-  },
   "homepage": "https://github.com/sanity-io/sanity-template-nextjs-clean#readme",
   "workspaces": [
     "studio",

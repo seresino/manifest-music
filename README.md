@@ -74,7 +74,6 @@ manifest-music/
 - `pnpm dev:next` - Run only Next.js in development mode
 - `pnpm dev:studio` - Run only Sanity Studio in development mode
 - `pnpm i-all` - Install dependencies for all workspaces
-- `pnpm import-sample-data` - Import sample data into Sanity Studio
 
 ## 🤝 Contributing
 
