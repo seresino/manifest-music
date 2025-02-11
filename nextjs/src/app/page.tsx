@@ -1,23 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import VideoBackground from "@/components/video-background";
 import { Instagram, Mail } from "lucide-react";
 
 export default function LandingPage() {
   return (
     <div className="fixed inset-0 h-screen w-screen overflow-hidden">
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/placeholder.mp4" type="video/mp4" />
-      </video>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <VideoBackground />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
