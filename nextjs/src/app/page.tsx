@@ -48,7 +48,7 @@ export default function LandingPage() {
               src="/logos/manifest-crown-text-logo-white.svg"
               alt="Logo"
               width={200}
-              height={48}
+              height={200}
               className="transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
