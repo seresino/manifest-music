@@ -1,68 +1,26 @@
+// src/components/artist-grid.tsx
 import { ArtistCard } from "@/components/artist-card";
+import { urlFor } from "@/sanity/image"; // Import the urlFor helper
 
-export function ArtistGrid() {
-  const artists = [
-    {
-      id: 1,
-      name: "Artist One",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 2,
-      name: "Artist Two",
-      image: "/images/post-malone.avif",
-    },
-    {
-      id: 3,
-      name: "Artist Three",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 4,
-      name: "Artist Four",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 5,
-      name: "Artist Five",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 6,
-      name: "Artist Six",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 7,
-      name: "Artist Seven",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 8,
-      name: "Artist Eight",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 9,
-      name: "Artist Nine",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 10,
-      name: "Artist Ten",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      id: 11,
-      name: "Artist Eleven",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-  ];
+interface ArtistGridProps {
+  artists: Artist[];
+}
+
+export function ArtistGrid({ artists }: ArtistGridProps) {
+  if (artists.length === 0) {
+    return <div>No artists found</div>;
+  }
 
   return (
     <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {artists.map((artist) => (
-        <ArtistCard key={artist.id} {...artist} />
+        <ArtistCard
+          key={artist._id} // Use the _id from Sanity
+          name={artist.name}
+          image={artist.image ? urlFor(artist.image).url() : "/placeholder.svg"} // Get image URL using urlFor
+          instagram={artist.instagram} // Pass instagram URL
+          spotify={artist.spotify} // Pass spotify URL
+        />
       ))}
     </div>
   );
