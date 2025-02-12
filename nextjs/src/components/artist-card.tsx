@@ -2,57 +2,50 @@
 import Image from "next/image";
 import { SiSpotify, SiInstagram } from "react-icons/si";
 import Link from "next/link";
+import { urlFor } from "@/sanity/image";
 
 interface ArtistCardProps {
-  name: string;
-  image?: string; // Optional image field
-  instagram?: string; // Optional Instagram URL
-  spotify?: string; // Optional Spotify URL
+  artist: {
+    name?: string;
+    image?: any;
+    instagram?: string;
+    spotify?: string;
+  };
 }
 
-export function ArtistCard({
-  name,
-  image, // Fallback to placeholder image if no image provided
-  instagram,
-  spotify,
-}: ArtistCardProps) {
+export function ArtistCard({ artist }: ArtistCardProps) {
   return (
     <div className="group relative">
       {/* Image section */}
       <Image
-        src={image} // Use the provided image or fallback to placeholder
-        alt={name || "Artist"} // Fallback alt text if name is missing
+        src={artist.image ? urlFor(artist.image).url() : "/placeholder.svg"}
+        alt={artist.name || "Artist"}
         width={600}
         height={400}
         className="aspect-[3/2] w-full object-cover rounded-[20px] transition-transform duration-300 group-hover:filter group-hover:blur-sm"
       />
       {/* Overlay with name and social links */}
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <h3 className="mb-6 text-2xl font-bold">{name || "Unknown Artist"}</h3>{" "}
-        {/* Fallback name if missing */}
+        <h3 className="mb-6 text-2xl font-bold">
+          {artist.name || "Unknown Artist"}
+        </h3>
+
         <div className="flex space-x-4">
-          {/* Render Spotify link if available */}
-          {spotify ? (
+          {artist.spotify && (
             <Link
-              href={spotify}
+              href={artist.spotify}
               className="transition-transform hover:scale-110"
             >
               <SiSpotify className="h-6 w-6" />
             </Link>
-          ) : (
-            <span className="h-6 w-6" /> // Empty space if no Spotify link
           )}
-
-          {/* Render Instagram link if available */}
-          {instagram ? (
+          {artist.instagram && (
             <Link
-              href={instagram}
+              href={artist.instagram}
               className="transition-transform hover:scale-110"
             >
               <SiInstagram className="h-6 w-6" />
             </Link>
-          ) : (
-            <span className="h-6 w-6" /> // Empty space if no Instagram link
           )}
         </div>
       </div>
