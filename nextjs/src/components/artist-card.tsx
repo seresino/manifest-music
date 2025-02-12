@@ -34,6 +34,8 @@ export function ArtistCard({ artist }: ArtistCardProps) {
           {artist.spotify && (
             <Link
               href={artist.spotify}
+              target="_blank"
+              rel="noopener noreferrer"
               className="transition-transform hover:scale-110"
             >
               <SiSpotify className="h-6 w-6" />
@@ -42,6 +44,8 @@ export function ArtistCard({ artist }: ArtistCardProps) {
           {artist.instagram && (
             <Link
               href={artist.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
               className="transition-transform hover:scale-110"
             >
               <SiInstagram className="h-6 w-6" />

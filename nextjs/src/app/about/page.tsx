@@ -33,6 +33,8 @@ export default function AboutPage() {
             <Link
               href="mailto:info@manifestmusic.com"
               className="rounded-full border border-black/20 p-2 transition-colors hover:bg-black/5"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Mail className="h-8 w-8" />
               <span className="sr-only">Email</span>
