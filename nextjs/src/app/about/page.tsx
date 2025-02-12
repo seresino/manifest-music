@@ -5,6 +5,10 @@ import { PortableText } from "@portabletext/react";
 
 const SETTINGS_QUERY = `*[_type == "settings"][0]`;
 
+const renderSocialLink = (type, url) => (
+  <SocialLink type={type} url={url} color="black" />
+);
+
 export default async function AboutPage() {
   const settings = await client.fetch(SETTINGS_QUERY);
 
@@ -19,24 +23,15 @@ export default async function AboutPage() {
             width={250}
             height={48}
           />
-          <div className="text-xl font-bold text-black">
+          <div className="text-xl font-normal text-black">
             <PortableText value={settings.about} />
           </div>
           <div className="flex items-center gap-4">
-            {settings.instagram && (
-              <SocialLink
-                type="instagram"
-                url={settings.instagram}
-                color="black"
-              />
-            )}
-            {settings.email && (
-              <SocialLink type="email" url={settings.email} color="black" />
-            )}
+            {settings.instagram &&
+              renderSocialLink("instagram", settings.instagram)}
+            {settings.email && renderSocialLink("email", settings.email)}
           </div>
         </div>
-
-        {/* Right Column - Placeholder */}
         <div className="h-96 lg:h-auto"></div>
       </div>
     </div>

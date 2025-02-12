@@ -1,7 +1,6 @@
 export default function BackgroundVideo() {
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden">
-      {/* Background Video */}
       <video
         autoPlay
         loop

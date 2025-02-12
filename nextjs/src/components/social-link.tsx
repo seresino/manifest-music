@@ -2,9 +2,9 @@ import { Instagram, Mail } from "lucide-react";
 import Link from "next/link";
 
 interface SocialLinkProps {
-  type: "instagram" | "email"; // Type to specify which link to show
+  type: "instagram" | "email";
   url: string;
-  color?: "black" | "white"; // Optional color prop
+  color?: "black" | "white";
 }
 
 const SocialLink = ({ type, url, color = "white" }: SocialLinkProps) => {

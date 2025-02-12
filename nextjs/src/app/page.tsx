@@ -8,30 +8,19 @@ import { urlFor } from "@/sanity/image";
 const SETTINGS_QUERY = `*[_type == "settings"][0] { instagram, email, logo4 }`;
 
 export default async function LandingPage() {
-  // Fetch settings document from Sanity
   const settings = await client.fetch(SETTINGS_QUERY);
+
+  const renderSocialLink = (type, url) => <SocialLink type={type} url={url} />;
 
   return (
     <div className="fixed inset-0 h-screen w-screen overflow-hidden">
       <VideoBackground />
-
-      {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
-        {/* Social Icons - Top Right */}
         <div className="absolute right-8 top-8 flex items-center gap-4">
-          {settings.instagram && (
-            <SocialLink
-              type="instagram"
-              url={settings.instagram}
-              color="white"
-            />
-          )}
-          {settings.email && (
-            <SocialLink type="email" url={settings.email} color="white" />
-          )}
+          {settings.instagram &&
+            renderSocialLink("instagram", settings.instagram)}
+          {settings.email && renderSocialLink("email", settings.email)}
         </div>
-
-        {/* Centered Logo */}
         <div className="flex h-full flex-col items-center justify-center px-4">
           <Link href="/artists" className="group">
             {settings.logo4 ? (
@@ -47,7 +36,6 @@ export default async function LandingPage() {
             )}
           </Link>
         </div>
-
         <div className="absolute bottom-10 w-full text-center">
           <p className="text-sm text-white/70 md:text-base">
             Music Publishing • Management • Creative Services
