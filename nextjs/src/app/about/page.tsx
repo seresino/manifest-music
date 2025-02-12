@@ -1,8 +1,13 @@
-import { Instagram, Mail } from "lucide-react";
-import Link from "next/link";
+import { client } from "@/sanity/client";
 import Image from "next/image";
+import SocialLink from "@/components/social-link";
+import { PortableText } from "@portabletext/react";
 
-export default function AboutPage() {
+const SETTINGS_QUERY = `*[_type == "settings"][0]`;
+
+export default async function AboutPage() {
+  const settings = await client.fetch(SETTINGS_QUERY);
+
   return (
     <div className="container mx-auto max-w-7xl py-20">
       <div className="grid gap-20 lg:grid-cols-4">
@@ -14,31 +19,20 @@ export default function AboutPage() {
             width={250}
             height={48}
           />
-          <p className="text-xl font-bold text-black">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <div className="text-xl font-bold text-black">
+            <PortableText value={settings.about} />
+          </div>
           <div className="flex items-center gap-4">
-            <Link
-              href="https://www.instagram.com/manifestmusic__/"
-              className="rounded-full border border-black/20 p-2 transition-colors hover:bg-black/5"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram className="h-8 w-8" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="mailto:info@manifestmusic.com"
-              className="rounded-full border border-black/20 p-2 transition-colors hover:bg-black/5"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Mail className="h-8 w-8" />
-              <span className="sr-only">Email</span>
-            </Link>
+            {settings.instagram && (
+              <SocialLink
+                type="instagram"
+                url={settings.instagram}
+                color="black"
+              />
+            )}
+            {settings.email && (
+              <SocialLink type="email" url={settings.email} color="black" />
+            )}
           </div>
         </div>
 
