@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export function SideMenu() {
   const [open, setOpen] = React.useState(false);
@@ -31,12 +30,6 @@ export function SideMenu() {
         <div className="flex h-full flex-col px-6">
           <SheetHeader className="h-28 border-b border-white/10">
             <div className="flex h-full items-end justify-between pb-6">
-              {/* <Image
-                src="/logos/manifest-crown-logo-white.svg"
-                alt="Logo"
-                width={60}
-                height={10}
-              /> */}
               <button
                 onClick={() => setOpen(false)}
                 className="flex items-center space-x-2 text-white hover:opacity-70"
@@ -68,7 +61,7 @@ export function SideMenu() {
               </li>
               <li>
                 <Link
-                  href="/producers-writers"
+                  href="/producer-writers"
                   className="text-white/70 transition-colors hover:text-white"
                   onClick={() => setOpen(false)}
                 >

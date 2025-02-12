@@ -1,14 +1,13 @@
+import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { ArtistGrid } from "@/components/artist-grid";
-import { type SanityDocument } from "next-sanity";
 
-// Query to fetch all artists with type "Producer/Writer"
-const ARTISTS_QUERY = `*[_type == "artist" && type == "artist"]`;
+// Query to fetch all artist documents from Sanity
+const ARTISTS_QUERY = `*[_type == "artist" && defined(name)]`;
 
 const options = { next: { revalidate: 30 } };
 
-export default async function ProducerWriterPage() {
-  // Fetch artists from Sanity
+export default async function IndexPage() {
   const artists = await client.fetch<SanityDocument[]>(
     ARTISTS_QUERY,
     {},
@@ -17,7 +16,7 @@ export default async function ProducerWriterPage() {
 
   return (
     <div className="container mx-auto max-w-7xl">
-      {/* Pass the fetched artists to ArtistGrid */}
+      {/* Pass the fetched artists to ArtistGrid component */}
       <ArtistGrid artists={artists} />
     </div>
   );
