@@ -3,7 +3,7 @@
  */
 
 const DOCUMENT_TYPES = {
-  MUSICIAN: 'artist',
+  MUSICIAN: 'musician',
   SETTINGS: 'settings'
 } as const;
 

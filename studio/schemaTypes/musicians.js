@@ -1,6 +1,6 @@
 export default {
-  name: 'artist',
-  title: 'Artist',
+  name: 'musician',
+  title: 'Musician',
   type: 'document',
   fields: [
     {
