@@ -2,7 +2,7 @@ import { client } from "@/sanity/client";
 import { ArtistGrid } from "@/components/artist-grid";
 import { type SanityDocument } from "next-sanity";
 
-// Query to fetch all artists with type "Producer/Writer"
+// Query to fetch all artists with type "artist"
 const ARTISTS_QUERY = `*[_type == "artist" && type == "artist"]`;
 
 const options = { next: { revalidate: 30 } };
