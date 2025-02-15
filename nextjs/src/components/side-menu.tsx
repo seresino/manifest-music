@@ -9,9 +9,11 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useSettings } from "@/contexts/SettingsContext";
 
 export function SideMenu() {
   const [open, setOpen] = React.useState(false);
+  const settings = useSettings();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -70,7 +72,7 @@ export function SideMenu() {
               </li>
               <li>
                 <Link
-                  href="mailto:info@manifestmusic.com"
+                  href={`mailto:${settings.email}`}
                   className="text-white/70 transition-colors hover:text-white"
                   onClick={() => setOpen(false)}
                 >

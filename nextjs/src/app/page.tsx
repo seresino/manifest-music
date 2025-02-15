@@ -1,16 +1,18 @@
-import { client } from "@/sanity/client";
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import VideoBackground from "@/components/video-background";
 import SocialLink from "@/components/social-link";
 import { urlFor } from "@/sanity/image";
+import { useSettings } from "@/contexts/SettingsContext";
 
-const SETTINGS_QUERY = `*[_type == "settings"][0] { instagram, email, logo4 }`;
+export default function LandingPage() {
+  const settings = useSettings();
 
-export default async function LandingPage() {
-  const settings = await client.fetch(SETTINGS_QUERY);
-
-  const renderSocialLink = (type, url) => <SocialLink type={type} url={url} round={true} />;
+  const renderSocialLink = (type: string, url: string) => (
+    <SocialLink type={type} url={url} round={true} />
+  );
 
   return (
     <div className="fixed inset-0 h-screen w-screen overflow-hidden">
@@ -24,7 +26,13 @@ export default async function LandingPage() {
           <Link href="/all" className="group">
             {settings.logo4 ? (
               <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
-                <Image src={urlFor(settings.logo4).url()} alt="Logo" fill sizes="(max-width: 768px) 200px, 400px" className="object-contain transition-transform duration-300 group-hover:scale-105" />
+                <Image 
+                  src={urlFor(settings.logo4).url()} 
+                  alt="Manifest Music" 
+                  fill 
+                  sizes="(max-width: 768px) 200px, 400px" 
+                  className="object-contain transition-transform duration-300 group-hover:scale-105" 
+                />
               </div>
             ) : (
               <p className="text-white">Logo not available</p>

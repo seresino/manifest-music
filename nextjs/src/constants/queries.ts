@@ -3,7 +3,8 @@
  */
 
 const DOCUMENT_TYPES = {
-  MUSICIAN: 'artist'
+  MUSICIAN: 'artist',
+  SETTINGS: 'settings'
 } as const;
 
 /**
@@ -17,4 +18,5 @@ export const QUERIES = {
   ALL: `*[_type == "${DOCUMENT_TYPES.MUSICIAN}"]`,
   ARTISTS: getArtistsByTypeQuery("artist"),
   PRODUCER_WRITERS: getArtistsByTypeQuery("producer-writer"),
+  SETTINGS: `*[_type == "${DOCUMENT_TYPES.SETTINGS}"][0]`,
 } as const;
