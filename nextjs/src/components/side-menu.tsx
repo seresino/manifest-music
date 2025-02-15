@@ -1,7 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
@@ -16,12 +21,19 @@ export function SideMenu() {
           <span className="text-sm font-medium">MENU</span>
         </button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[300px] border-none bg-black p-0" title="Navigation Menu" hideTitle>
+      <SheetContent
+        side="right"
+        className="w-[300px] border-none bg-black p-0"
+        title="Navigation Menu"
+        hideTitle
+      >
         <div className="flex h-full flex-col px-6">
-          <SheetHeader className="h-32 border-b border-white/10">
+          <SheetHeader className="h-28 border-b border-white/10">
             <div className="flex h-full items-end justify-between pb-6">
-              <div className="h-8 w-20 bg-white" />
-              <button onClick={() => setOpen(false)} className="flex items-center space-x-2 text-white hover:opacity-70">
+              <button
+                onClick={() => setOpen(false)}
+                className="flex items-center space-x-2 text-white hover:opacity-70"
+              >
                 <span className="text-xs font-small">CLOSE MENU</span>
                 <X className="h-7 w-7" />
               </button>
@@ -30,22 +42,38 @@ export function SideMenu() {
           <nav className="flex-1 py-8">
             <ul className="space-y-6 text-sm">
               <li>
-                <Link href="/about" className="text-white/70 transition-colors hover:text-white" onClick={() => setOpen(false)}>
+                <Link
+                  href="/about"
+                  className="text-white/70 transition-colors hover:text-white"
+                  onClick={() => setOpen(false)}
+                >
                   ABOUT
                 </Link>
               </li>
               <li>
-                <Link href="/artists" className="text-white/70 transition-colors hover:text-white" onClick={() => setOpen(false)}>
+                <Link
+                  href="/artists"
+                  className="text-white/70 transition-colors hover:text-white"
+                  onClick={() => setOpen(false)}
+                >
                   ARTISTS
                 </Link>
               </li>
               <li>
-                <Link href="/producers-writers" className="text-white/70 transition-colors hover:text-white" onClick={() => setOpen(false)}>
+                <Link
+                  href="/producer-writers"
+                  className="text-white/70 transition-colors hover:text-white"
+                  onClick={() => setOpen(false)}
+                >
                   PRODUCERS & WRITERS
                 </Link>
               </li>
               <li>
-                <Link href="mailto:contact@manifest.com" className="text-white/70 transition-colors hover:text-white" onClick={() => setOpen(false)}>
+                <Link
+                  href="mailto:info@manifestmusic.com"
+                  className="text-white/70 transition-colors hover:text-white"
+                  onClick={() => setOpen(false)}
+                >
                   CONTACT
                 </Link>
               </li>

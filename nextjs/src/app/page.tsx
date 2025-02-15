@@ -1,37 +1,38 @@
+import { client } from "@/sanity/client";
+import Image from "next/image";
 import Link from "next/link";
-import { Instagram, Mail } from "lucide-react";
+import VideoBackground from "@/components/video-background";
+import SocialLink from "@/components/social-link";
+import { urlFor } from "@/sanity/image";
 
-export default function LandingPage() {
+const SETTINGS_QUERY = `*[_type == "settings"][0] { instagram, email, logo4 }`;
+
+export default async function LandingPage() {
+  const settings = await client.fetch(SETTINGS_QUERY);
+
+  const renderSocialLink = (type, url) => <SocialLink type={type} url={url} round={true} />;
+
   return (
     <div className="fixed inset-0 h-screen w-screen overflow-hidden">
-      {/* Video Background */}
-      <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
-        <source src="/placeholder.mp4" type="video/mp4" />
-      </video>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
-
-      {/* Content */}
+      <VideoBackground />
       <div className="relative z-10 flex h-full flex-col">
-        {/* Social Icons - Top Right */}
         <div className="absolute right-8 top-8 flex items-center gap-4">
-          <Link href="https://instagram.com" className="rounded-full border border-white/20 p-2 text-white transition-colors hover:bg-white/10" target="_blank" rel="noopener noreferrer">
-            <Instagram className="h-5 w-5" />
-            <span className="sr-only">Instagram</span>
-          </Link>
-          <Link href="mailto:contact@manifest.com" className="rounded-full border border-white/20 p-2 text-white transition-colors hover:bg-white/10">
-            <Mail className="h-5 w-5" />
-            <span className="sr-only">Email</span>
+          {settings.instagram && renderSocialLink("instagram", settings.instagram)}
+          {settings.email && renderSocialLink("email", settings.email)}
+        </div>
+        <div className="flex h-full flex-col items-center justify-center px-4">
+          <Link href="/all" className="group">
+            {settings.logo4 ? (
+              <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
+                <Image src={urlFor(settings.logo4).url()} alt="Logo" fill sizes="(max-width: 768px) 200px, 400px" className="object-contain transition-transform duration-300 group-hover:scale-105" />
+              </div>
+            ) : (
+              <p className="text-white">Logo not available</p>
+            )}
           </Link>
         </div>
-
-        {/* Centered Logo */}
-        <div className="flex h-full flex-col items-center justify-center px-4">
-          <Link href="/artists" className="group">
-            <div className="mb-8 h-40 w-96 bg-white transition-transform duration-300 group-hover:scale-105 md:h-48 md:w-[480px] lg:h-56 lg:w-[560px]" />
-            <p className="text-center text-sm text-white/70 md:text-base">Music Publishing • Management • Creative Services</p>
-          </Link>
+        <div className="absolute bottom-10 w-full text-center">
+          <p className="text-sm text-white/70 md:text-lg">Music Publishing • Management • Creative Services</p>
         </div>
       </div>
     </div>

@@ -1,3 +1,22 @@
+const LOGO_DESCRIPTIONS = {
+  1: 'Primary logo - Used in header - black version',
+  2: 'Primary logo - white version',
+  3: 'Full Logo (small) - Compact version optimized for mobile devices and small spaces',
+  4: 'Full logo (large) - Used as button on landing page',
+  5: 'Wordmark logo black - Used on about page',
+  6: 'Wordmark logo white - Used in footer'
+}
+
+const createLogoField = (number) => ({
+  name: `logo${number}`,
+  title: `Logo ${number}`,
+  type: 'image',
+  description: LOGO_DESCRIPTIONS[number],
+  options: {
+    hotspot: true,
+  },
+})
+
 export default {
   name: 'settings',
   title: 'Settings',
@@ -9,14 +28,12 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
-    {
-      name: 'logo',
-      title: 'Logo',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    },
+    createLogoField(1),
+    createLogoField(2),
+    createLogoField(3),
+    createLogoField(4),
+    createLogoField(5),
+    createLogoField(6),
     {
       name: 'about',
       title: 'About',

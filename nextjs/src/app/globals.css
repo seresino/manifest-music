@@ -2,8 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add the Qanelas font */
+@font-face {
+  font-family: "Qanelas";
+  src: url("/fonts/Qanelas/qanelas_regular_macroman/qanelas-regular-webfont.woff2")
+      format("woff2"),
+    url("/fonts/Qanelas/qanelas_regular_macroman/qanelas-regular-webfont.woff")
+      format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("/fonts/Qanelas/qanelas_bold_macroman/qanelas-bold-webfont.woff2")
+      format("woff2"),
+    url("/fonts/Qanelas/qanelas_bold_macroman/qanelas-bold-webfont.woff")
+      format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Qanelas";
+  src: url("/fonts/Qanelas/qanelas_lightitalic_macroman/qanelas-lightitalic-webfont.woff2")
+      format("woff2"),
+    url("/fonts/Qanelas/qanelas_lightitalic_macroman/qanelas-lightitalic-webfont.woff")
+      format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Qanelas", Arial, Helvetica, sans-serif;
 }
 
 @layer base {
