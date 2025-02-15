@@ -6,20 +6,14 @@ import { usePathname } from "next/navigation";
 export function Header() {
   const pathname = usePathname();
 
-  const getPageTitle = () => {
-    switch (pathname) {
-      case "/all":
-        return "Roster";
-      case "/artists":
-        return "Artists";
-      case "/producer-writers":
-        return "Producer & Writers";
-      case "/about":
-        return "About";
-      default:
-        return "";
-    }
+  const PAGE_TITLES = {
+    "/all": "Roster",
+    "/artists": "Artists",
+    "/producer-writers": "Producer & Writers",
+    "/about": "About"
   };
+
+  const getPageTitle = () => PAGE_TITLES[pathname] || "";
 
   const pageTitle = getPageTitle();
 

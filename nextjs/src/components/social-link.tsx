@@ -21,5 +21,3 @@ const SocialLink = ({ type, url, color = "white", round = false }: SocialLinkPro
 };
 
 export default SocialLink;
-
-// className={`p-1 transition-colors hover:bg-black/20 ${iconClass}`} target="_blank" rel="noopener noreferrer">
