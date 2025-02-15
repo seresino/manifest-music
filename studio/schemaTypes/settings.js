@@ -1,21 +1,17 @@
+const LOGO_DESCRIPTIONS = {
+  1: 'Primary logo - Used in header - black version',
+  2: 'Primary logo - white version',
+  3: 'Full Logo (small) - Compact version optimized for mobile devices and small spaces',
+  4: 'Full logo (large) - Used as button on landing page',
+  5: 'Wordmark logo black - Used on about page',
+  6: 'Wordmark logo white - Used in footer'
+}
+
 const createLogoField = (number) => ({
   name: `logo${number}`,
   title: `Logo ${number}`,
   type: 'image',
-  description:
-    number === 1
-      ? 'Primary logo - Used in header - black version'
-      : number === 2
-        ? 'Primary logo - white version'
-        : number === 3
-          ? 'Full Logo (small) - Compact version optimized for mobile devices and small spaces'
-          : number === 4
-            ? 'Full logo (large) - Used as button on landing page'
-            : number === 5
-              ? 'Wordmark logo balck - Used on about page'
-              : number === 6
-                ? 'Wordmark logo white - Used in footer'
-                : 'Additional logo - For special campaigns or alternative branding needs',
+  description: LOGO_DESCRIPTIONS[number],
   options: {
     hotspot: true,
   },
