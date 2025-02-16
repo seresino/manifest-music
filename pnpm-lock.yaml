@@ -8362,6 +8362,11 @@ snapshots:
       '@sanity/client': 6.27.2(debug@4.4.0)
       '@sanity/uuid': 3.0.2
 
+  '@sanity/preview-url-secret@2.1.4(@sanity/client@6.27.2)':
+    dependencies:
+      '@sanity/client': 6.27.2(debug@4.4.0)
+      '@sanity/uuid': 3.0.2
+
   '@sanity/schema@3.74.1(@types/react@18.3.18)(debug@4.4.0)':
     dependencies:
       '@sanity/generate-help-url': 3.0.0
@@ -8595,7 +8600,7 @@ snapshots:
       '@sanity/insert-menu': 1.1.1(@emotion/is-prop-valid@1.2.2)(@sanity/types@3.74.1(@types/react@19.0.8))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@sanity/mutate': 0.11.0-canary.4(xstate@5.19.2)
       '@sanity/presentation-comlink': 1.0.6(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
-      '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2(debug@4.4.0))
+      '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2)
       '@sanity/ui': 2.12.3(@emotion/is-prop-valid@1.2.2)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@sanity/visual-editing-csm': 2.0.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
       '@vercel/stega': 0.1.2
@@ -11167,7 +11172,7 @@ snapshots:
       '@sanity/icons': 3.5.7(react@19.0.0)
       '@sanity/next-loader': 1.2.24(@sanity/types@3.74.1(@types/react@19.0.8))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       '@sanity/preview-kit': 5.2.4(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))(react@19.0.0)
-      '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2(debug@4.4.0))
+      '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2)
       '@sanity/types': 3.74.1(@types/react@19.0.8)(debug@4.4.0)
       '@sanity/ui': 2.12.3(@emotion/is-prop-valid@1.2.2)(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)(styled-components@6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@sanity/visual-editing': 2.13.1(@emotion/is-prop-valid@1.2.2)(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))(next@15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react-is@18.3.1)(react@19.0.0)
@@ -12265,7 +12270,7 @@ snapshots:
       '@sanity/migrate': 3.74.1(@types/react@19.0.8)
       '@sanity/mutator': 3.74.1(@types/react@19.0.8)
       '@sanity/presentation-comlink': 1.0.6(@sanity/client@6.27.2)(@sanity/types@3.74.1(@types/react@19.0.8))
-      '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2(debug@4.4.0))
+      '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.27.2)
       '@sanity/schema': 3.74.1(@types/react@19.0.8)(debug@4.4.0)
       '@sanity/telemetry': 0.7.9(react@19.0.0)
       '@sanity/types': 3.74.1(@types/react@19.0.8)(debug@4.4.0)

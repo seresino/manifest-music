@@ -1,4 +1,4 @@
-import artists from './artists'
+import musician from './musicians'
 import settings from './settings'
 
-export const schemaTypes = [artists, settings]
+export const schemaTypes = [musician, settings]

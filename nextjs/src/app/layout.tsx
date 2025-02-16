@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClientLayout } from "@/components/client-layout";
+import SettingsProvider from "@/components/SettingsProvider";
 import type React from "react";
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body>
-        <ClientLayout>{children}</ClientLayout>
+        <SettingsProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </SettingsProvider>
       </body>
     </html>
   );
