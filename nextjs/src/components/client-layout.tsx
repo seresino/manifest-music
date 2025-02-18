@@ -16,7 +16,7 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow bg-white px-4 py-8 md:px-6 lg:px-8">
+      <main className="flex-grow bg-white px-4 md:px-6 md:py-8 lg:px-8 lg:py-12">
         {children}
       </main>
       <Footer />
