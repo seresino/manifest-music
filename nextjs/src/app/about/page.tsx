@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import SocialLink from "@/components/social-link";
@@ -12,10 +12,12 @@ const renderSocialLink = (type: string, url: string) => (
 
 export default function AboutPage() {
   const settings = useSettings();
-  const logoUrl = settings.logo5 ? urlFor(settings.logo5).url() : "/logos/manifest-text-logo-black.svg";
+  const logoUrl = settings.logo5
+    ? urlFor(settings.logo5).url()
+    : "/logos/manifest-text-logo-black.svg";
 
   return (
-    <div className="container mx-auto max-w-7xl md:py-20">
+    <div className="container mx-auto md:py-20">
       <div className="grid gap-20 lg:grid-cols-4">
         {/* Left Column */}
         <div className="space-y-16 lg:col-span-3">
@@ -24,7 +26,8 @@ export default function AboutPage() {
             <PortableText value={settings.about} />
           </div>
           <div className="flex items-center gap-4">
-            {settings.instagram && renderSocialLink("instagram", settings.instagram)}
+            {settings.instagram &&
+              renderSocialLink("instagram", settings.instagram)}
             {settings.email && renderSocialLink("email", settings.email)}
           </div>
         </div>
