@@ -17,7 +17,7 @@ export default function AboutPage() {
     : "/logos/manifest-text-logo-black.svg";
 
   return (
-    <div className="container mx-auto max-w-7xl md:py-20">
+    <div className="container mx-auto md:py-20">
       <div className="grid gap-20 lg:grid-cols-4">
         {/* Left Column */}
         <div className="space-y-16 lg:col-span-3">

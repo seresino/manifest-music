@@ -13,7 +13,7 @@ export function Footer() {
 
   return (
     <footer className="bg-black px-4 py-12 text-white md:px-6 lg:px-8">
-      <div className="container mx-auto max-w-8xl">
+      <div className="container mx-auto">
         <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:items-center md:space-y-0">
           <div className="text-sm w-1/3 items-start">
             <Image src={logoUrl} alt="Manifest Music" width={160} height={40} />

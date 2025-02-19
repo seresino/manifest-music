@@ -14,7 +14,7 @@ export default async function ProducerWriterPage() {
   );
 
   return (
-    <div className="container mx-auto max-w-8xl">
+    <div className="container mx-auto">
       <Title />
       <ArtistGrid artists={artists} />
     </div>
