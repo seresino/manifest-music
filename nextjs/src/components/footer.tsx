@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer className="bg-black px-4 py-12 text-white md:px-6 lg:px-8">
       <div className="container mx-auto">
-        <div className="flex flex-col items-start justify-between space-y-4 md:flex-row md:items-center md:space-y-0">
+        <div className="flex flex-col items-startspace-y-4 md:flex-row md:items-center md:space-y-0">
           <div className="text-sm w-1/3 items-start">
             <Image src={logoUrl} alt="Manifest Music" width={160} height={40} />
             <div className="mt-2 text-[10px] leading-none text-gray-300">
@@ -25,7 +25,7 @@ export function Footer() {
           <div className="flex flex-col text-sm w-1/3 items-center">
             Music Publishing • Management • Creative Services
           </div>
-          <div className="flex flex-col justify-between text-sm w-1/3 lg:items-end md:items-end sm:items-start">
+          <div className="flex flex-col text-sm w-1/3 lg:items-end md:items-end sm:items-start">
             <a href={`mailto:${settings.email}`} className="hover:underline">
               {settings.email}
             </a>
