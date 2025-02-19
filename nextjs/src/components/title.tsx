@@ -4,12 +4,18 @@ import { usePathname } from "next/navigation";
 export function Title() {
   const pathname = usePathname();
 
-  const PAGE_TITLES = {
-    "/all": "Roster",
-    "/artists": "Artists",
-    "/producer-writers": "Producer & Writers",
-    "/about": "About",
-  };
+const PAGE_TITLES: Record<string, string> = {
+  "/all": "Roster",
+  "/artists": "Artists",
+  "/producer-writers": "Producer & Writers",
+  "/about": "About",
+};
+
+export function Title() {
+  const pathname = usePathname();
+
+  // ... rest of the component logic
+}
 
   const getPageTitle = () => PAGE_TITLES[pathname] || "";
 
