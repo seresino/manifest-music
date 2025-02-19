@@ -13,16 +13,15 @@ interface SanityImage {
   caption?: string;
 }
 
-interface ArtistCardProps {
-  artist: {
-    name?: string;
-    image?: SanityImage;
-    instagram?: string;
-    spotify?: string;
-  };
+export interface Artist {
+  _id: string;
+  name?: string;
+  image?: SanityImage;
+  instagram?: string;
+  spotify?: string;
 }
 
-export function ArtistCard({ artist }: ArtistCardProps) {
+export function ArtistCard({ artist }: { artist: Artist }) {
   return (
     <div className="group relative">
       <Image
