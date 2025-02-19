@@ -1,9 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
 
-export function Title() {
-  const pathname = usePathname();
-
 const PAGE_TITLES: Record<string, string> = {
   "/all": "Roster",
   "/artists": "Artists",
@@ -13,10 +10,7 @@ const PAGE_TITLES: Record<string, string> = {
 
 export function Title() {
   const pathname = usePathname();
-
-  // ... rest of the component logic
-}
-
+  
   const getPageTitle = () => PAGE_TITLES[pathname] || "";
 
   const pageTitle = getPageTitle();
