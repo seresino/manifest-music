@@ -3,10 +3,20 @@ import { SiSpotify, SiInstagram } from "react-icons/si";
 import Link from "next/link";
 import { urlFor } from "@/sanity/image";
 
+interface SanityImage {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: "reference";
+  };
+  alt?: string;
+  caption?: string;
+}
+
 interface ArtistCardProps {
   artist: {
     name?: string;
-    image?: any;
+    image?: SanityImage;
     instagram?: string;
     spotify?: string;
   };
