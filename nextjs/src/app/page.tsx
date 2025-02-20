@@ -43,7 +43,7 @@ export default function LandingPage() {
         </div>
         <div className="absolute bottom-10 w-full text-center">
           <p className="text-sm text-white/70 md:text-lg">
-            Music Publishing • Management • Creative Services
+            Music Publishing • Management • Records
           </p>
         </div>
       </div>

@@ -1,36 +1,41 @@
 import Image from "next/image";
 import { SiSpotify, SiInstagram } from "react-icons/si";
 import Link from "next/link";
-import { urlFor } from "@/sanity/image";
-
-interface SanityImage {
-  _type: "image";
-  asset: {
-    _ref: string;
-    _type: "reference";
-  };
-  alt?: string;
-  caption?: string;
-}
+import { useNextSanityImage } from "next-sanity-image";
+import { client } from "@/sanity/client";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export interface Artist {
   _id: string;
   name?: string;
-  image?: SanityImage;
+  image?: SanityImageSource;
   instagram?: string;
   spotify?: string;
 }
 
 export function ArtistCard({ artist }: { artist: Artist }) {
+  const imageProps = artist.image
+    ? useNextSanityImage(client, artist.image)
+    : null;
+
   return (
     <div className="group relative">
-      <Image
-        src={artist.image ? urlFor(artist.image).url() : "/placeholder.svg"}
-        alt={artist.name || "Artist"}
-        width={600}
-        height={400}
-        className="aspect-[3/2] w-full object-cover rounded-[20px] transition-transform duration-300 group-hover:filter group-hover:blur-sm"
-      />
+      {imageProps ? (
+        <Image
+          {...imageProps}
+          alt={artist.name || "Artist"}
+          className="aspect-[3/2] w-full object-cover rounded-[20px] transition-transform duration-300 group-hover:filter group-hover:blur-sm"
+        />
+      ) : (
+        <Image
+          src="/placeholder.svg"
+          alt="Placeholder"
+          width={600}
+          height={400}
+          className="aspect-[3/2] w-full object-cover rounded-[20px]"
+        />
+      )}
+
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         <h3 className="mb-6 text-2xl font-bold">
           {artist.name || "Unknown Artist"}

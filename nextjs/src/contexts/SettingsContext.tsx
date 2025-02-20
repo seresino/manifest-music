@@ -2,28 +2,19 @@
 
 import { createContext, useContext } from "react";
 import { PortableTextBlock } from "@portabletext/types";
-
-interface SanityImage {
-  _type: "image";
-  asset: {
-    _ref: string;
-    _type: "reference";
-  };
-  alt?: string;
-  caption?: string;
-}
+import { SanityImageSource } from "@/sanity/image"; // ✅ Import from here
 
 export interface Settings {
   name: string; // Company Name
-  logo1?: SanityImage; // Primary logo - Used in header - black version
-  logo2?: SanityImage; // Primary logo - white version
-  logo3?: SanityImage; // Full Logo (small) - Compact version for mobile
-  logo4?: SanityImage; // Full logo (large) - Used as button on landing page
-  logo5?: SanityImage; // Wordmark logo black - Used on about page
-  logo6?: SanityImage; // Wordmark logo white - Used in footer
-  about: PortableTextBlock[]; // Rich text content for about page
-  instagram?: string; // Instagram URL
-  email: string; // Contact email
+  logo1?: SanityImageSource;
+  logo2?: SanityImageSource;
+  logo3?: SanityImageSource;
+  logo4?: SanityImageSource;
+  logo5?: SanityImageSource;
+  logo6?: SanityImageSource;
+  about: PortableTextBlock[];
+  instagram?: string;
+  email: string;
 }
 
 const SettingsContext = createContext<Settings | null>(null);
