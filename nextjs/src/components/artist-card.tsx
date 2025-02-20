@@ -14,27 +14,20 @@ export interface Artist {
 }
 
 export function ArtistCard({ artist }: { artist: Artist }) {
-  const imageProps = artist.image
-    ? useNextSanityImage(client, artist.image)
-    : null;
+  const imageProps = useNextSanityImage(
+    client,
+    artist.image || { asset: { _ref: "" } }
+  );
 
   return (
     <div className="group relative">
-      {imageProps ? (
-        <Image
-          {...imageProps}
-          alt={artist.name || "Artist"}
-          className="aspect-[3/2] w-full object-cover rounded-[20px] transition-transform duration-300 group-hover:filter group-hover:blur-sm"
-        />
-      ) : (
-        <Image
-          src="/placeholder.svg"
-          alt="Placeholder"
-          width={600}
-          height={400}
-          className="aspect-[3/2] w-full object-cover rounded-[20px]"
-        />
-      )}
+      <Image
+        {...(artist.image
+          ? imageProps
+          : { src: "/placeholder.svg", width: 600, height: 400 })}
+        alt={artist.name || "Artist"}
+        className="aspect-[3/2] w-full object-cover rounded-[20px] transition-transform duration-300 group-hover:filter group-hover:blur-sm"
+      />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
         <h3 className="mb-6 text-2xl font-bold">
