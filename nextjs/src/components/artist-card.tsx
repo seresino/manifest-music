@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { SiSpotify, SiInstagram } from "react-icons/si";
 import Link from "next/link";
