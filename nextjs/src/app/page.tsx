@@ -21,21 +21,21 @@ export default function LandingPage() {
           {settings.email && renderSocialLink("email", settings.email)}
         </div>
         <div className="flex h-full flex-col items-center justify-center px-4">
-          <Link href="/all" className="group">
-            {settings.logo4 ? (
-              <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
-                <Image
-                  src={urlFor(settings.logo4).url()}
-                  alt="Manifest Music"
-                  fill
-                  sizes="(max-width: 768px) 200px, 400px"
-                  className="object-contain transition-transform duration-300 hover:scale-105"
-                />
-              </div>
-            ) : (
-              <p className="text-white">Logo not available</p>
-            )}
-          </Link>
+          {/* <Link href="/all" className="group"> */}
+          {settings.logo4 ? (
+            <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
+              <Image
+                src={urlFor(settings.logo4).url()}
+                alt="Manifest Music"
+                fill
+                sizes="(max-width: 768px) 200px, 400px"
+                className="object-contain transition-transform duration-300 hover:scale-105"
+              />
+            </div>
+          ) : (
+            <p className="text-white">Logo not available</p>
+          )}
+          {/* </Link> */}
         </div>
         <div className="absolute bottom-10 w-full text-center">
           <p className="text-sm text-white/70 md:text-lg">Music Publishing • Management • Creative Services</p>
