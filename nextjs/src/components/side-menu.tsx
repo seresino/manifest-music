@@ -54,20 +54,11 @@ export function SideMenu() {
               </li>
               <li>
                 <Link
-                  href="/artists"
+                  href="/roster"
                   className="text-white/70 transition-colors hover:text-white"
                   onClick={() => setOpen(false)}
                 >
-                  ARTISTS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/producer-writers"
-                  className="text-white/70 transition-colors hover:text-white"
-                  onClick={() => setOpen(false)}
-                >
-                  PRODUCERS & WRITERS
+                  ROSTER
                 </Link>
               </li>
               <li>
