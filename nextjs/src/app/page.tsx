@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import VideoBackground from "@/components/video-background";
 import SocialLink from "@/components/social-link";
 import { urlFor } from "@/sanity/image";
@@ -38,7 +37,6 @@ export default function LandingPage() {
           ) : (
             <p className="text-white">Logo not available</p>
           )}
-          {/* </Link> */}
         </div>
         <div className="absolute bottom-10 w-full text-center">
           <p className="text-sm text-white/70 md:text-lg">
