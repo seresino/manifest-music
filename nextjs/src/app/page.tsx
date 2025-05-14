@@ -2,25 +2,26 @@
 
 import Image from "next/image";
 import VideoBackground from "@/components/video-background";
-import SocialLink from "@/components/social-link";
+import SocialLink, { SocialLinkType } from "@/components/social-link";
 import { urlFor } from "@/sanity/image";
 import { useSettings } from "@/contexts/SettingsContext";
 
 export default function LandingPage() {
   const settings = useSettings();
 
-  const renderSocialLink = (type: string, url: string) => (
+  const renderSocialLink = (type: SocialLinkType, url: string) => (
     <SocialLink type={type} url={url} round={true} />
   );
 
   return (
-    <div className="fixed inset-0 h-screen w-screen overflow-hidden">
+    <div className="fixed inset-0 h-dvh w-screen overflow-hidden">
       <VideoBackground src="/videos/reel.mp4" className="z-[-1]" />
       <div className="relative z-10 flex h-full flex-col">
         <div className="absolute right-8 top-8 flex items-center gap-4">
           {settings.instagram &&
-            renderSocialLink("instagram", settings.instagram)}
-          {settings.email && renderSocialLink("email", settings.email)}
+            renderSocialLink(SocialLinkType.Instagram, settings.instagram)}
+          {settings.email &&
+            renderSocialLink(SocialLinkType.Email, settings.email)}
         </div>
         <div className="flex h-full flex-col items-center justify-center px-4">
           {settings.logo4 ? (
