@@ -23,7 +23,6 @@ export default function LandingPage() {
           {settings.email && renderSocialLink("email", settings.email)}
         </div>
         <div className="flex h-full flex-col items-center justify-center px-4">
-          {/* <Link href="/all" className="group"> */}
           {settings.logo4 ? (
             <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
               <Image
