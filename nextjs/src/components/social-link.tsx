@@ -13,20 +13,10 @@ interface SocialLinkProps {
   type: SocialLinkType;
   url: string;
   color?: "black" | "white";
-  round?: boolean;
 }
 
-const SocialLink = ({
-  type,
-  url,
-  color = "white",
-  round = false,
-}: SocialLinkProps) => {
+const SocialLink = ({ type, url, color = "white" }: SocialLinkProps) => {
   const iconClass = color === "black" ? "text-black" : "text-white";
-  const iconShape =
-    round === true
-      ? "rounded-full border border-black/30 p-2 hover:bg-black/60"
-      : "rounded-md p-1 hover:bg-black/10";
 
   // Determine the correct href based on the type
   const href = type === SocialLinkType.Email ? `mailto:${url}` : url;
@@ -56,7 +46,7 @@ const SocialLink = ({
   return (
     <Link
       href={href}
-      className={`${iconShape} transition-colors ${iconClass}`}
+      className={`transition-colors ${iconClass} hover:opacity-75 inline-block`}
       target="_blank"
       rel="noopener noreferrer"
     >

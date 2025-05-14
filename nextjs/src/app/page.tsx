@@ -10,7 +10,7 @@ export default function LandingPage() {
   const settings = useSettings();
 
   const renderSocialLink = (type: SocialLinkType, url: string) => (
-    <SocialLink type={type} url={url} round={true} />
+    <SocialLink type={type} url={url} />
   );
 
   return (
@@ -20,10 +20,10 @@ export default function LandingPage() {
         <div className="absolute right-8 top-8 flex items-center gap-4">
           {settings.instagram &&
             renderSocialLink(SocialLinkType.Instagram, settings.instagram)}
-          {settings.email &&
-            renderSocialLink(SocialLinkType.Email, settings.email)}
           {settings.spotify &&
             renderSocialLink(SocialLinkType.Spotify, settings.spotify)}
+          {settings.email &&
+            renderSocialLink(SocialLinkType.Email, settings.email)}
         </div>
         <div className="flex h-full flex-col items-center justify-center px-4">
           {settings.logo4 ? (
