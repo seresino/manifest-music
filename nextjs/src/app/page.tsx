@@ -22,6 +22,8 @@ export default function LandingPage() {
             renderSocialLink(SocialLinkType.Instagram, settings.instagram)}
           {settings.email &&
             renderSocialLink(SocialLinkType.Email, settings.email)}
+          {settings.spotify &&
+            renderSocialLink(SocialLinkType.Spotify, settings.spotify)}
         </div>
         <div className="flex h-full flex-col items-center justify-center px-4">
           {settings.logo4 ? (
