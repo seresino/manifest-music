@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import VideoBackground from "@/components/video-background";
 import SocialLink, { SocialLinkType } from "@/components/social-link";
 import { urlFor } from "@/sanity/image";
@@ -28,13 +29,15 @@ export default function LandingPage() {
         <div className="flex h-full flex-col items-center justify-center px-4">
           {settings.logo4 ? (
             <div className="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px]">
-              <Image
-                src={urlFor(settings.logo4).url()}
-                alt="Manifest Music"
-                fill
-                sizes="(max-width: 768px) 200px, 400px"
-                className="object-contain transition-transform duration-300 hover:scale-105"
-              />
+              <Link href="/roster" className="flex items-center">
+                <Image
+                  src={urlFor(settings.logo4).url()}
+                  alt="Manifest Music"
+                  fill
+                  sizes="(max-width: 768px) 200px, 400px"
+                  className="object-contain transition-transform duration-300 hover:scale-105"
+                />
+              </Link>
             </div>
           ) : (
             <p className="text-white">Logo not available</p>
