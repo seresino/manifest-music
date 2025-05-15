@@ -28,6 +28,8 @@ export default function AboutPage() {
           <div className="flex items-center gap-4">
             {settings.instagram &&
               renderSocialLink(SocialLinkType.Instagram, settings.instagram)}
+            {settings.spotify &&
+              renderSocialLink(SocialLinkType.Spotify, settings.spotify)}
             {settings.email &&
               renderSocialLink(SocialLinkType.Email, settings.email)}
           </div>
