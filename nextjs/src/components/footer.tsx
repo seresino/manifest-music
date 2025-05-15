@@ -23,7 +23,7 @@ export function Footer() {
             </div>
           </div>
           <div className="flex flex-col text-sm w-1/3 items-center">
-            Music Publishing • Management • Creative Services
+            Music Publishing • Management • Records
           </div>
           <div className="flex flex-col text-sm w-1/3 lg:items-end md:items-end sm:items-start">
             <a href={`mailto:${settings.email}`} className="hover:underline">
