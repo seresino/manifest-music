@@ -30,7 +30,7 @@ export function ArtistCard({ artist }: { artist: Artist }) {
         className="aspect-[3/2] w-full object-cover rounded-[20px] transition-transform duration-300 group-hover:filter group-hover:blur-sm"
       />
       <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <h3 className="mb-6 text-2xl font-bold">
+        <h3 className="mb-6 text-xl font-bold justify-center text-center">
           {artist.name || "Unknown Artist"}
         </h3>
 
