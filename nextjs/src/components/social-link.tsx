@@ -1,4 +1,3 @@
-// nextjs/src/components/social-link.tsx
 "use client"; // Ensure this is a client component
 
 import Link from "next/link";
@@ -25,19 +24,26 @@ const getNativeAppUrl = (type: SocialLinkType, url: string): string => {
 
   try {
     const urlObject = new URL(url);
+    const pathnameParts = urlObject.pathname.split("/").filter((part) => part); // Split path and remove empty strings
+
     switch (type) {
       case SocialLinkType.Instagram:
-        // Attempt to extract the username from the path
-        const instagramUsername = urlObject.pathname.split("/")[1];
-        if (instagramUsername) {
-          return `instagram://user?username=${instagramUsername}`;
+        // Expected format: /username/
+        if (pathnameParts.length >= 1) {
+          const username = pathnameParts[0];
+          return `instagram://user?username=${username}`;
         }
-        break;
+        // Fallback for potentially other Instagram link types not handled
+        return url; // Fallback to web URL
       case SocialLinkType.Spotify:
-        // Replace the web domain with the Spotify scheme
-        // This is a simple replacement; a more robust solution might parse the path
-        // to handle different Spotify URL types (album, playlist, artist)
-        return url.replace("https://open.spotify.com", "spotify://");
+        // Expected formats: /artist/id, /album/id, /playlist/id, /track/id, /user/id, /show/id, /episode/id
+        if (pathnameParts.length >= 2) {
+          const contentType = pathnameParts[0]; // e.g., 'artist', 'playlist', 'user'
+          const contentId = pathnameParts[1]; // The ID of the content
+          return `spotify://${contentType}/${contentId}`; // Construct the native URL
+        }
+        // Fallback for unexpected Spotify link formats
+        return url; // Fallback to web URL
       case SocialLinkType.Email:
         // mailto links are handled separately and don't use this scheme logic
         return `mailto:${url}`; // Although this case is handled outside this function now
